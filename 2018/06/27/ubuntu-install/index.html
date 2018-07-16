@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  Ubuntu Install |   senye </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <header class="header">
+	
+  <nav class="header-nav">        
+   
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-menu">          
+              
+            
+
+              <a class="header-menu-link" id="header-menu-home" href="/">Home</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-archives" href="/archives">Archives</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-tags" href="/tags">Tags</a>     
+
+            
+            
+            
+
+              <a class="header-menu-link" id="header-menu-about" href="/about">About</a>     
+
+            
+            
+            
+
+              <a class="iconfont icon-menu-search header-menu-link" id="header-menu-search"></a>
+
+            
+                
+    </div>  
+    
+  </nav>
+</header>   
+
+      <div class="container">       
+          
+          
+            <section class="main">  
+          
+
+          <article class="post">
+  
+	<div class="post-header">
+
+	<p class="post-title">	
+		Ubuntu Install
+	</p>
+			
+
+	<div class="meta-info">	
+	<span>
+		Jun 27, 2018
+	</span>
+
+	
+	
+		<i class="iconfont icon-words"></i>
+		<span>
+			863
+		</span>
+	
+</div>
+
+</div> 
+	 
+
+	  <div class="post-content slideDownMin">
+
+		
+
+			
+					<h2 id="Ubuntu-18-04-LTS安装"><a href="#Ubuntu-18-04-LTS安装" class="headerlink" title="Ubuntu 18.04 LTS安装"></a>Ubuntu 18.04 LTS安装</h2><p><br>闲来无事，折腾一下ubuntu。在此之前，有过安装archlinux，kali的经验。事实上，物理机安装linux发行版，从零开始，对linux目录结构和磁盘管理等方面的知识，都是一次挑战 @_@，但在此之前，一定要做好功课！<br></p>
+
+<p><i>安装时间：2018.6.27</i></p>
+
+<h3 id="首先，get到ubuntu镜像"><a href="#首先，get到ubuntu镜像" class="headerlink" title="首先，get到ubuntu镜像"></a>首先，get到ubuntu镜像</h3><p><a href="https://www.ubuntu.com/download/desktop" target="_blank" rel="noopener">ubuntu desktop下载</a>，建议采用 <strong>torrent+迅雷</strong> 的下载方式：&gt;&gt;&gt; <a href="https://www.ubuntu.com/download/alternative-downloads" target="_blank" rel="noopener">BitTorrent</a></p>
+<a id="more"></a>
+<h3 id="vmware安装iso"><a href="#vmware安装iso" class="headerlink" title="vmware安装iso"></a>vmware安装iso</h3><ul>
+<li>虚拟机配置<ol>
+<li>客户机操作系统选择：<code>linux</code> &gt;&gt;&gt; <code>ubuntu 64位</code></li>
+<li>虚拟机名称：对应用户名，自己修改，这里我改成 <code>Aurora</code></li>
+<li>位置：建议不放在c盘，在其他盘建议一个目录专门存放虚拟机文件</li>
+<li>后面一路回车</li>
+<li>内存：看实体机，内存大的建议给到<code>3g</code>左右。我的是8g，给了2.5g，因为2g有点卡啊！！</li>
+<li>磁盘：大小<code>30g</code>吧，因为本着折腾的目的，可能会大量安装乱七八糟的软件 &gt;&gt;&gt; 将磁盘存储为单个文件</li>
+</ol>
+</li>
+<li>ubuntu安装<ol>
+<li>虚拟机配置结束后，进入虚拟机设置里的<code>CD/DVD</code>,添加下载好的iso文件</li>
+<li>欢迎界面：选择 <strong>中文</strong> ，点击<code>安装unbutu</code></li>
+<li>键盘布局：默认</li>
+<li>更新和其他软件：建议最小安装，需要再去自己折腾</li>
+<li>安装类型：清除整个磁盘并安装</li>
+<li>后面回车就行了</li>
+</ol>
+</li>
+<li>主题安装<ol>
+<li>安装优化工具：<code>gnome-tweak-tool</code></li>
+<li>终端命令：<code>sudo apt-get install gnome-tweak-tool</code></li>
+<li>安装numix：个人感觉很好看，可以百度看一看</li>
+<li>终端命令：<code>sudo add-apt-repository ppa:numix/ppa</code></li>
+<li>安装主题：numix-gtk-theme</li>
+<li>终端命令：<code>sudo apt-get install numix-gtk-theme numix-icon-theme-circle</code></li>
+<li>然后打开<code>tweak</code>优化工具设置下载的主题Numix主题，图标设置为Numix-circle</li>
+</ol>
+</li>
+</ul>
+<h3 id="物理机安装iso"><a href="#物理机安装iso" class="headerlink" title="物理机安装iso"></a>物理机安装iso</h3><blockquote>
+<p>找到机会实际操作一番再来填坑！</p>
+</blockquote>
+  	
+					
+	  </div>     
+	  
+
+	
+<div class="post-meta">
+      	
+
+      
+        <i class="iconfont icon-tag"></i>     
+          <a class="tag-link" href="/tags/Linux/">Linux</a>    
+      	
+</div>
+
+
+
+
+
+<div class="post-footer">
+  <div class="pf-left">
+      <img class="pf-avatar" src="/images/header.jpg">
+      <p class="pf-des">here is memo！</p>
+  </div>
+
+  <div class="pf-right">           
+      <div class="pf-links">
+         
+        
+	
+<script id="-mob-share" src="http://f1.webshare.mob.com/code/mob-share.js?appkey=21d601593a1de"></script>
+	
+	<span class="share-btn">
+	<span class="iconfont icon-share"></span>
+	</span>
+
+
+	<div class="-mob-share sildeUpMin">
+		   			             
+            <a class="iconfont  icon-share-qq -mob-share-qq"></a>		
+     	   			             
+            <a class="iconfont  icon-share-weixin -mob-share-weixin"></a>		
+     	   			             
+            <a class="iconfont  icon-share-weibo -mob-share-weibo"></a>		
+     	   			             
+            <a class="iconfont  icon-share-douban -mob-share-douban"></a>		
+     	   			             
+            <a class="iconfont  icon-share-facebook -mob-share-facebook"></a>		
+     	   			             
+            <a class="iconfont  icon-share-twitter -mob-share-twitter"></a>		
+     	   			             
+            <a class="iconfont  icon-share-google -mob-share-google"></a>		
+     	   
+	</div>	
+
+      </div>  
+    <nav class="pf-paginator">
+      
+         
+          <a href="/2018/07/15/nayo/" data-hover="Nayo">Prev</a>      
+            
+        
+      
+        
+        <a href="/2018/06/20/hello-world/" data-hover="Hello World"> Next</a>
+            
+  </nav>   
+  </div>
+</div> 
+	 
+
+    <div id="comment">   
+    </div>
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+
+    <script src="//unpkg.com/valine@v1.1.8-beta/dist/Valine.min.js"></script>
+
+    <script>
+        new Valine({
+        el: '#comment',
+        notify:false, 
+        verify:false, 
+        app_id: 'i7oq1pLlDrckurr1x2OIXvlz-gzGzoHsz',
+        app_key: 'fTa3aQamU8kcwA0QWUK2qeSM',  
+        path:window.location.pathname, 
+        avatar:'mm' ,
+        guest_info:['nick','mail']
+        });
+    </script>
+	
+</article>
+
+	<div class="sidebar">
+		<h4 class="toc-title">Contents</h4>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Ubuntu-18-04-LTS安装"><span class="toc-text">Ubuntu 18.04 LTS安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先，get到ubuntu镜像"><span class="toc-text">首先，get到ubuntu镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vmware安装iso"><span class="toc-text">vmware安装iso</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#物理机安装iso"><span class="toc-text">物理机安装iso</span></a></li></ol></li></ol>
+	</div>
+
+          </section> 
+      </div>            
+    
+    <a id="backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">  
+            <span class="search-cancel iconfont icon-cancel"></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">   
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+		
+		2018		
+	
+		Memo
+		<br>
+
+		Theme By
+		<a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>	
+		</div>			
+	 
+</footer>   
+
+  
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>
