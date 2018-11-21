@@ -92,7 +92,7 @@
 	
 		<i class="iconfont icon-words"></i>
 		<span>
-			1935
+			1938
 		</span>
 	
 </div>
@@ -147,7 +147,10 @@
 <ul>
 <li><em>Portmanteau Q</em>检验:  构造思想是如果残差序列方差非齐,且具有集群效应,那么残差平方序列通常具有自相关性.所以方差非齐的检验可以转换为残差平方序列的自相关检验<br>假设条件:<br><img src="/assets/GARCH/1.png" alt=""></li>
 </ul>
-<p>当<code>Q(q)</code>统计量的P值小于显著水平<code>α</code>时,拒绝原假设,认为该序列方差非齐且具有自相关关系<br><em>LM检验</em>: 构造思想是如果残差序列方差非齐,且具有集群效应,那么残差序列具有自相关性.因此可以尝试对残差平方序列进行自回归模型的拟合(<code>ARCH(q)</code>模型)<br>$$ε^2_t=ω+\sumλ<em>jε^2</em>{t-j}+e_t$$<br>假设条件:<br><img src="/assets/GARCH/1.png" alt=""></p>
+<p>当<code>Q(q)</code>统计量的P值小于显著水平<code>α</code>时,拒绝原假设,认为该序列方差非齐且具有自相关关系</p>
+<ul>
+<li><em>LM检验</em>: 构造思想是如果残差序列方差非齐,且具有集群效应,那么残差序列具有自相关性.因此可以尝试对残差平方序列进行自回归模型的拟合(<code>ARCH(q)</code>模型)<br>$$ε^2_t=ω+\sumλ<em>jε^2</em>{t-j}+e_t$$<br>假设条件:<br><img src="/assets/GARCH/1.png" alt=""></li>
+</ul>
 <p>于是方差齐性的检验转换成这个方差是否显著成立的检验,若方差显著,意味着残差平方序列具有自相关性,可以用该回归方差提取自相关信息.</p>
 <h2 id="决策-P值小于显著水平α时-拒绝原假设-认为该序列方差非齐-并且可以使用q阶自回归拟合残差平方序列的自相关关系"><a href="#决策-P值小于显著水平α时-拒绝原假设-认为该序列方差非齐-并且可以使用q阶自回归拟合残差平方序列的自相关关系" class="headerlink" title="决策:P值小于显著水平α时,拒绝原假设,认为该序列方差非齐,并且可以使用q阶自回归拟合残差平方序列的自相关关系"></a>决策:P值小于显著水平<code>α</code>时,拒绝原假设,认为该序列方差非齐,并且可以使用q阶自回归拟合残差平方序列的自相关关系</h2><ol start="3">
 <li><strong>实例应用</strong><br><em>对1926-1991年标普500股票股价波动的模型拟合</em></li>
@@ -210,13 +213,22 @@
 
 <nav class="post-footer-nav">
   
+    <div class="post-footer-link">
+      <a href="/2018/11/21/arch-1/" id="post-nav-newer" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">newer</strong>
+           
+          <a class="post-nav-title" href="/2018/11/21/arch-1/">
+          ARCH模型拟合案例</a>
+      </a>
+    </div>
+  
   
     <div class="post-footer-link">
       <a href="/2018/06/20/HelloSenye/" id="post-nav-older" class="post-nav-link-wrap">
         <strong class="post-nav-caption">older</strong>
         
           <a class="post-nav-title" href="/2018/06/20/HelloSenye/">
-          Hello Senye</a>
+          Hello 城中乌</a>
       </a>
     </div>
   
