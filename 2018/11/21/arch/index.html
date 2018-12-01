@@ -81,29 +81,28 @@
 
 
 
-<meta name="description" content="对于异方差序列的精确拟合,有方差齐性变化以及条件异方差模型两种方法.实践中,异方差函数的具体形式一般未知,因此在宏观经济领域和金融领域广泛采用条件异方差模型对异方差波动进行处理">
+<meta name="description" content="ARCH模型的构建思路已经在这里有所叙述,这次使用一个案例回顾过程.">
 <meta name="keywords" content="SAS,时间序列">
 <meta property="og:type" content="article">
-<meta property="og:title" content="条件异方差模型">
-<meta property="og:url" content="https://isenye.github.io/2018/11/17/archmodel/index.html">
+<meta property="og:title" content="ARCH模型拟合案例">
+<meta property="og:url" content="https://isenye.github.io/2018/11/21/arch/index.html">
 <meta property="og:site_name" content="Wyat&#39;s Inn">
-<meta property="og:description" content="对于异方差序列的精确拟合,有方差齐性变化以及条件异方差模型两种方法.实践中,异方差函数的具体形式一般未知,因此在宏观经济领域和金融领域广泛采用条件异方差模型对异方差波动进行处理">
+<meta property="og:description" content="ARCH模型的构建思路已经在这里有所叙述,这次使用一个案例回顾过程.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://isenye.github.io/assets/GARCH/0.png">
-<meta property="og:image" content="https://isenye.github.io/assets/GARCH/1.png">
-<meta property="og:image" content="https://isenye.github.io/assets/GARCH/1.png">
-<meta property="og:image" content="https://isenye.github.io/assets/GARCH/3.png">
-<meta property="og:image" content="https://isenye.github.io/assets/GARCH/7.png">
-<meta property="og:image" content="https://isenye.github.io/assets/GARCH/4.png">
-<meta property="og:image" content="https://isenye.github.io/assets/GARCH/5.png">
-<meta property="og:image" content="https://isenye.github.io/assets/GARCH/6.png">
-<meta property="og:image" content="https://isenye.github.io/assets/GARCH/8.png">
-<meta property="og:image" content="https://isenye.github.io/assets/GARCH/9.png">
-<meta property="og:updated_time" content="2018-11-26T14:21:03.100Z">
+<meta property="og:image" content="https://isenye.github.io/assets/arch_1/1.png">
+<meta property="og:image" content="https://isenye.github.io/assets/arch_1/2.png">
+<meta property="og:image" content="https://isenye.github.io/assets/arch_1/3.png">
+<meta property="og:image" content="https://isenye.github.io/assets/arch_1/5.png">
+<meta property="og:image" content="https://isenye.github.io/assets/arch_1/6.png">
+<meta property="og:image" content="https://isenye.github.io/assets/arch_1/7.png">
+<meta property="og:image" content="https://isenye.github.io/assets/arch_1/8.png">
+<meta property="og:image" content="https://isenye.github.io/assets/arch_1/9.png">
+<meta property="og:image" content="https://isenye.github.io/assets/arch_1/10.png">
+<meta property="og:updated_time" content="2018-12-01T10:34:10.652Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="条件异方差模型">
-<meta name="twitter:description" content="对于异方差序列的精确拟合,有方差齐性变化以及条件异方差模型两种方法.实践中,异方差函数的具体形式一般未知,因此在宏观经济领域和金融领域广泛采用条件异方差模型对异方差波动进行处理">
-<meta name="twitter:image" content="https://isenye.github.io/assets/GARCH/0.png">
+<meta name="twitter:title" content="ARCH模型拟合案例">
+<meta name="twitter:description" content="ARCH模型的构建思路已经在这里有所叙述,这次使用一个案例回顾过程.">
+<meta name="twitter:image" content="https://isenye.github.io/assets/arch_1/1.png">
 
 
 
@@ -133,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://isenye.github.io/2018/11/17/archmodel/"/>
+  <link rel="canonical" href="https://isenye.github.io/2018/11/21/arch/"/>
 
 
 
 
 
-  <title>条件异方差模型 | Wyat's Inn</title>
+  <title>ARCH模型拟合案例 | Wyat's Inn</title>
   
 
 
@@ -300,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://isenye.github.io/2018/11/17/archmodel/">
+    <link itemprop="mainEntityOfPage" href="https://isenye.github.io/2018/11/21/arch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wyat">
@@ -317,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">条件异方差模型</h1>
+          <h1 class="post-title" itemprop="name headline">ARCH模型拟合案例</h1>
         
 
         <div class="post-meta">
@@ -329,8 +328,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-17T23:44:18+08:00">
-                2018-11-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-21T12:48:27+08:00">
+                2018-11-21
               </time>
             
 
@@ -348,8 +347,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/11/17/archmodel/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/17/archmodel/" itemprop="commentCount"></span>
+                <a href="/2018/11/21/arch/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/21/arch/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -357,7 +356,7 @@
 
           
           
-             <span id="/2018/11/17/archmodel/" class="leancloud_visitors" data-flag-title="条件异方差模型">
+             <span id="/2018/11/21/arch/" class="leancloud_visitors" data-flag-title="ARCH模型拟合案例">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -382,7 +381,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.2k
+                  579
                 </span>
               
 
@@ -398,7 +397,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  4
+                  2
                 </span>
               
             </div>
@@ -420,66 +419,49 @@
 
       
         <blockquote>
-<p>对于异方差序列的精确拟合,有方差齐性变化以及条件异方差模型两种方法.实践中,异方差函数的具体形式一般未知,因此在宏观经济领域和金融领域广泛采用条件异方差模型对异方差波动进行处理</p>
+<p>ARCH模型的构建思路已经在<a href="https://www.jianshu.com/p/f26aed349903" target="_blank" rel="noopener">这里</a>有所叙述,这次使用一个案例回顾过程.</p>
 </blockquote>
 <a id="more"></a>
 <hr>
-<h5 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h5><h5 id="1-集群效应"><a href="#1-集群效应" class="headerlink" title="1. 集群效应"></a>1. <strong>集群效应</strong></h5><p>对于提取完毕确定性信息之后,残差序列的波动,具有某些时段波动持续偏大的特征,如图示</p>
-<!-- more -->
-<p><img src="/assets/GARCH/0.png" alt="集群效应时序图"></p>
-<ul>
-<li><strong>说明:</strong> 集群效应,其本质是异方差现象.出现集群效应的时间序列,其方差基本齐性,但存在某段或某几段方差异与期望方差.因此基于齐性方差的分析方法无法确切拟合.通常,意味着需要引用 <em>条件方差模型</em></li>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><ul>
+<li>获取1750-1849年瑞典人口出生率数据;</li>
+<li>要求:<br>(1):选择适合的模型拟合序列发展;<br>(2):检验序列的异方差性,存在请拟合相应的条件异方差模型;</li>
 </ul>
 <hr>
-<h5 id="2-ARCH-模型"><a href="#2-ARCH-模型" class="headerlink" title="2. ARCH 模型"></a>2. <strong>ARCH 模型</strong></h5><p> 全称,自回归条件方差模型(autoregressive conditional heteroskedastic),1982. <em>Engle</em> 提出</p>
-<ol>
-<li><p><strong>构造原理:</strong> 假设在历史数据已知的情况下,零均值、纯随机残差序列具有异方差性.<br>$$Var(ε_t)=h_t$$<br>在满足正态分布的假定下,异方差等价于残差平方的均值<br>$$E(ε^2_t)=h_t$$<br>ARCH模型可以提取残差平方序列的相关信息,以获得原序列异方差特征.</p>
-</li>
-<li><p><strong>模型意图:</strong> 在已知的ARIMA模型,残差自回归模型,以及确定性因素的分解模型拟合的是序列的平均水平,本质上只是一个点估计,无法给出估计的精度.或者说由于假定了方差齐性,其给出的区间估计是一个定值.对于存在异方差现象的序列无法精确的拟合.<br><code>图片</code><br>上述提到构建ARCH模型的意图是使用自回归提取误差平方序列的相关信息.它的条件方差是一个时变函数,更能及时的反映序列即期波动的特征,即异方差特征</p>
-</li>
-<li><p><strong>ARCH检验:</strong> 在拟合ARCH模型的开始,需要对序列进行ARCH检验.要求序列的异方差是由于某种自相关性造成的.常用的两种统计方法: <em>Portmanteau Q</em> 检验和 <em>LM检验</em></p>
-</li>
-</ol>
-<ul>
-<li><em>Portmanteau Q</em>检验:  构造思想是如果残差序列方差非齐,且具有集群效应,那么残差平方序列通常具有自相关性.所以方差非齐的检验可以转换为残差平方序列的自相关检验<br>假设条件:<br><img src="/assets/GARCH/1.png" alt=""></li>
-</ul>
-<p>当<code>Q(q)</code>统计量的P值小于显著水平<code>α</code>时,拒绝原假设,认为该序列方差非齐且具有自相关关系</p>
-<ul>
-<li><em>LM检验</em>: 构造思想是如果残差序列方差非齐,且具有集群效应,那么残差序列具有自相关性.因此可以尝试对残差平方序列进行自回归模型的拟合(<code>ARCH(q)</code>模型)</li>
-</ul>
-<p>$$ε^2_t=ω+ \sumλ<em>jε^2</em>{t-j}+e_t$$<br>假设条件:<br><img src="/assets/GARCH/1.png" alt=""></p>
-<p>于是方差齐性的检验转换成这个方差是否显著成立的检验,若方差显著,意味着残差平方序列具有自相关性,可以用该回归方差提取自相关信息.</p>
-<h2 id="决策-P值小于显著水平α时-拒绝原假设-认为该序列方差非齐-并且可以使用q阶自回归拟合残差平方序列的自相关关系"><a href="#决策-P值小于显著水平α时-拒绝原假设-认为该序列方差非齐-并且可以使用q阶自回归拟合残差平方序列的自相关关系" class="headerlink" title="决策:P值小于显著水平α时,拒绝原假设,认为该序列方差非齐,并且可以使用q阶自回归拟合残差平方序列的自相关关系"></a>决策:P值小于显著水平<code>α</code>时,拒绝原假设,认为该序列方差非齐,并且可以使用q阶自回归拟合残差平方序列的自相关关系</h2><ol>
-<li><strong>实例应用</strong><br><em>对1926-1991年标普500股票股价波动的模型拟合</em></li>
-</ol>
-<ul>
-<li><p>导入数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data a;</span><br><span class="line">input return@@;</span><br><span class="line">t=intnx(&apos;month&apos;,&apos;1oct1926&apos;d,_n_-1);</span><br><span class="line">format t monyy5.;</span><br><span class="line">cards;</span><br><span class="line">...  # 数据集较大</span><br><span class="line">...  # 省略号代替</span><br><span class="line">...</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>(可选)对原序列进行模型识别,尝试建立ARMA模型失败.由图,序列自相关系数落在两倍标准差之上,具有长期自相关的特征</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">proc arima;</span><br><span class="line">identify var=return minic;</span><br></pre></td></tr></table></figure>
+<h2 id="解题"><a href="#解题" class="headerlink" title="解题"></a>解题</h2><ul>
+<li>导入数据<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data birth;</span><br><span class="line">input br@@;</span><br><span class="line">lagbr=lag(br);</span><br><span class="line">difbr=dif(br);</span><br><span class="line">year=intnx(&apos;year&apos;,&apos;01jan1750&apos;d, _n_-1);</span><br><span class="line">format year monyy7.;</span><br><span class="line">cards;</span><br><span class="line">....</span><br><span class="line">;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p><img src="/assets/GARCH/3.png" alt="自相关图"></p>
-<p>序列总体定阶 q=3</p>
-<p><img src="/assets/GARCH/7.png" alt="最小信息准则"></p>
+<hr>
+<h3 id="1-对原序列的基本分析-绘制时序图"><a href="#1-对原序列的基本分析-绘制时序图" class="headerlink" title="1. 对原序列的基本分析,绘制时序图"></a>1. 对原序列的基本分析,绘制时序图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proc gplot data=birth;</span><br><span class="line">plot br*t lagbr*t difbr*t;</span><br><span class="line">symbol i=join v=star c=red;</span><br><span class="line">run;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>考虑建立残差自回归模型<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">proc autoreg;</span><br><span class="line"></span><br><span class="line"># 指令系统建立序列return的线性回归模型,</span><br><span class="line">#绘制残差序列的5阶自相关图,输出dw检验及P值,对残差序列进行异方差检验.</span><br><span class="line"># garch=(q=3) noint 通过对输出的分析后加的</span><br><span class="line">model return=t/nlag=5 dwprob archtest garch=(q=3) noint;</span><br><span class="line"></span><br><span class="line"># 输出到out数据集中</span><br><span class="line">output  out=out lcl=lcl ucl=ucl cev=cev;</span><br></pre></td></tr></table></figure>
-</li>
+<li><em>原序列时序图</em> (滞后一阶时序图与原序列无差)<br><img src="/assets/arch_1/1.png" alt="br*t"></li>
+<li><em>一阶差分时序图</em> (出现了比较明显的异方差现象;<em>集群效应</em>)<br><img src="/assets/arch_1/2.png" alt="difbr*t"></li>
 </ul>
-<p>DW检验显示与时间t不存在相关性</p>
-<p><img src="/assets/GARCH/4.png" alt="普通最小二乘估计输出结果"></p>
-<p>残差序列5阶滞后自相关图不存在截尾特征</p>
-<p><img src="/assets/GARCH/5.png" alt="残差序列5阶滞后自相关图"></p>
-<p>异方差检验,拒绝原假设,方差非齐</p>
-<p><img src="/assets/GARCH/6.png" alt="异方差检验结果"></p>
-<p>结合自相关图和异方差检验,拟合ARCH(3)模型</p>
-<p><img src="/assets/GARCH/8.png" alt="最终模型参数检验"></p>
+<hr>
+<h3 id="2-arima绘制相关图-对原序列和一阶差分"><a href="#2-arima绘制相关图-对原序列和一阶差分" class="headerlink" title="2. arima绘制相关图 (对原序列和一阶差分)"></a>2. arima绘制相关图 (对原序列和一阶差分)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proc arima data=birth;</span><br><span class="line">identify var=br;</span><br><span class="line">identify var=br(1);</span><br><span class="line">run;</span><br></pre></td></tr></table></figure>
+<p><em>原序列自相关</em> (自相关图表现出短期相关性,偏自相关图类似,因此一阶差分后序列具有更好的平稳性质)<br><img src="/assets/arch_1/3.png" alt="br自相关图"></p>
+<h3 id="3-提取确定性信息"><a href="#3-提取确定性信息" class="headerlink" title="3. 提取确定性信息"></a>3. 提取确定性信息</h3><p>对原序列提取确定性信息,画出残差序列的五阶自相关图,并对提取后残差序列进行dw检验(判断残差序列是否仍具有相关性)</p>
+<p><em>自变量为t的幂函数提取</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proc autoreg data=birth;</span><br><span class="line">model br=t/ nlag=5 dwprob;</span><br><span class="line">run;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/assets/arch_1/5.png" alt="关于t的幂函数提取"></p>
+<p><em>自变量为滞后值提取</em> (可以基本对残差序列定阶为p=1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proc autoreg data=birth;</span><br><span class="line">model br=lagbr/ lagdep=lagbr nlag=5 dwprob;</span><br><span class="line">run;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/assets/arch_1/6.png" alt="滞后因变量提取"></p>
 <ul>
-<li>对建立的模型进行汇图<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">data out;</span><br><span class="line">set out;</span><br><span class="line">Lcl_ARCH=-1.96*sqrt(cev);</span><br><span class="line">Ucl_ARCH=1.96*sqrt(cev);</span><br><span class="line">proc gplot data=out;</span><br><span class="line">plot return*t=2 lcl*t=3 LCL_arch*t=4 ucl*t=3 UCL_arch*t=4 /overlay;</span><br><span class="line">symbol2 c=green i=needle v=none ;</span><br><span class="line">symbol3 c=black i=join v=none w=2 l=2;</span><br><span class="line">symbol4 c=red i=join v=none ;</span><br><span class="line">run;</span><br></pre></td></tr></table></figure>
-</li>
+<li>五阶自相关图表明参数序列自具有短期相关性,可以只建立ARCH模型</li>
 </ul>
-<p><img src="/assets/GARCH/9.png" alt="拟合图"></p>
+<p><img src="/assets/arch_1/7.png" alt="残差五阶自相关图"></p>
+<ul>
+<li>参数检验通过</li>
+</ul>
+<p><img src="/assets/arch_1/8.png" alt="参数检验"></p>
+<hr>
+<h3 id="4-定阶拟合"><a href="#4-定阶拟合" class="headerlink" title="4.定阶拟合"></a>4.定阶拟合</h3><p>上述,残差序列模型确定为ARCH(1)</p>
+<p><em>code</em>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">proc autoreg data=birth;</span><br><span class="line">model br=lagbr/ lagdep=lagbr garch=(p=1);</span><br><span class="line">output out=out p=p lcl=lcl ucl=ucl cev=cev residual=residual;</span><br><span class="line">run;</span><br></pre></td></tr></table></figure></p>
+<p><em>参数检验</em><br><img src="/assets/arch_1/9.png" alt="results"></p>
+<h2 id="图形绘制"><a href="#图形绘制" class="headerlink" title="图形绘制"></a>图形绘制</h2><p><em>数据处理</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">data out;</span><br><span class="line">set out;</span><br><span class="line">lcl_residul=-1.96*sqrt(27.47293);</span><br><span class="line">Ucl_residul=1.96*sqrt(27.47293);</span><br><span class="line">Lcl_GARCH=-1.96*sqrt(cev);</span><br><span class="line">Ucl_GARCH=1.96*sqrt(cev);</span><br><span class="line">Lcl_P=P-1.96*sqrt(cev);</span><br><span class="line">Ucl_P=P+1.96*sqrt(cev);</span><br><span class="line">run;</span><br></pre></td></tr></table></figure></p>
+<p><em>绘图</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">proc gplot data=out;</span><br><span class="line">plot a*t=2  lcl*t=3 ucl*t=3 Lcl_P*t=4 Ucl_P*t=4/overlay;</span><br><span class="line">plot residual*t=2 lcl_residul*t=3 Ucl_residul*t=3 Lcl_GARCH*t=4  Ucl_GARCH*t=4/overlay;</span><br><span class="line">symbol2 c=green i=needle v=none;</span><br><span class="line">symbol3 c=black i=join v=none;</span><br><span class="line">symbol4 c=red i=join v=none ;</span><br><span class="line">run;</span><br></pre></td></tr></table></figure></p>
+<p><em>拟合图</em></p>
+<p><img src="/assets/arch_1/10.png" alt=""></p>
 
       
     </div>
@@ -512,8 +494,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/20/HelloSenye/" rel="next" title="Hello 城中乌">
-                <i class="fa fa-chevron-left"></i> Hello 城中乌
+              <a href="/2018/11/17/archmo/" rel="next" title="条件异方差模型">
+                <i class="fa fa-chevron-left"></i> 条件异方差模型
               </a>
             
           </div>
@@ -522,8 +504,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/21/arch-1/" rel="prev" title="ARCH模型拟合案例">
-                ARCH模型拟合案例 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/24/garch/" rel="prev" title="GARCH模型及拟合案例">
+                GARCH模型及拟合案例 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -689,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#前置"><span class="nav-number">1.</span> <span class="nav-text">前置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-集群效应"><span class="nav-number">2.</span> <span class="nav-text">1. 集群效应</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-ARCH-模型"><span class="nav-number">3.</span> <span class="nav-text">2. ARCH 模型</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#决策-P值小于显著水平α时-拒绝原假设-认为该序列方差非齐-并且可以使用q阶自回归拟合残差平方序列的自相关关系"><span class="nav-number"></span> <span class="nav-text">决策:P值小于显著水平α时,拒绝原假设,认为该序列方差非齐,并且可以使用q阶自回归拟合残差平方序列的自相关关系</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题"><span class="nav-number">2.</span> <span class="nav-text">解题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-对原序列的基本分析-绘制时序图"><span class="nav-number">2.1.</span> <span class="nav-text">1. 对原序列的基本分析,绘制时序图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-arima绘制相关图-对原序列和一阶差分"><span class="nav-number">2.2.</span> <span class="nav-text">2. arima绘制相关图 (对原序列和一阶差分)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-提取确定性信息"><span class="nav-number">2.3.</span> <span class="nav-text">3. 提取确定性信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-定阶拟合"><span class="nav-number">2.4.</span> <span class="nav-text">4.定阶拟合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图形绘制"><span class="nav-number">3.</span> <span class="nav-text">图形绘制</span></a></li></ol></div>
             
 
           </div>
