@@ -1930,7 +1930,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #4ff;
+  background: #ff8eff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3121,4 +3121,12 @@ img:hover {
 .main-inner {
   background: #e8f;
   opacity: 0.85;
+}
+@font-face {
+  font-family: INKFREE;
+  src: url("/fonts/INKFREE.ttf");
+}
+.site-title {
+  font-size: 30px !important;
+  font-family: 'INKFREE' !important;
 }
